@@ -147,3 +147,38 @@ function getWeekDay2(date) {
 
 }
 
+//Task 8
+// выводим дату в формате дд.мм.гг
+
+function formatDate8(date){
+
+    return date.toLocaleDateString('ua', {
+        day: '2-digit',
+        month: '2-digit',
+        year: '2-digit'
+    })
+}
+
+//вариант 2
+
+function formatDate82(date){
+    let data
+
+    if(date.getDate() < 10){
+        data = `0${date.getDate()}`
+    }
+
+    let month
+
+    if(date.getMonth() < 10){
+        month = `0${date.getMonth()+1}`
+    }
+
+    let year = date.getFullYear().toString().slice(2,4)
+
+    return `${data}.${month}.${year}`
+}
+
+let date8 = new Date(2007, 1, 1)
+console.log(formatDate8(date8))
+console.log(formatDate82(date8))
